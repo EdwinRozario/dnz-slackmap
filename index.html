@@ -161,6 +161,39 @@
 		</div>
 	</div>
 
+	<hr>
+	<div class="large-12 columns">	 
+		<div class="hide-for-small">
+			<div id="projects-pie-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		</div> 		 
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="row">
+			 
+				<div class="large-12 columns">
+					<div class="panel radius">
+						<div class="row">
+							<div class="large-6 small-6 columns">
+								<h4>Projects</h4>
+								<hr>
+								<h5 class="subheader">Pie Graph generated from projects mentioned in messages from users.</h5>
+								<div class="show-for-small" style="text-align: center">
+								<a class="small radius button" href="#">Call To Action!</a><br>
+								<a class="small radius button" href="#">Call To Action!</a>
+								</div>
+							</div>
+							<div class="large-6 small-6 columns">
+							<p>Have considered 'Harvest' as a project as its mentioned often and it runs like a project.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<hr> 
 	<div class="large-12 columns">	 
 		<div class="hide-for-small">
@@ -193,6 +226,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 <footer class="row">
@@ -287,6 +321,55 @@
 		    });
 	}
 
+
+    // Build the chart
+    $('#projects-pie-container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares January, 2015 to May, 2015'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Mentions',
+            colorByPoint: true,
+            data: [{
+                name: 'natlib',
+                y: 197.0
+            }, {
+                name: 'dnz',
+                y: 785.0,
+            }, {
+                name: 'paperspast',
+                y: 28.0
+            }, {
+                name: 'supplejack',
+                y: 117.0
+            }, {
+                name: 'harvest',
+                y: 452.0
+            }, {
+                name: 'services to schools',
+                y: 111.0
+            }]
+        }]
+    });
     // USER GRAPH
 	// var user_data = JSON.parse($('#users-data').attr('data-points'));
 	// $('#users-container').highcharts({
