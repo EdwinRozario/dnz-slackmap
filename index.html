@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundation 5</title>
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+<link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
+<body>
+<div class="row">
+<div class="large-12 columns">
+ 
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+ 
+<li class="name">
+<h1><a href="#">DNZ SlackMap</a></h1>
+</li>
+<li class="toggle-topbar menu-icon">
+<a href="#"><span>menu</span></a>
+</li>
+</ul>
+<section class="top-bar-section">
+<ul class="left">
+</ul>
+<ul class="right">
+	<li>
+	<a href="#">Link 1</a>
+	</li>
+	<li>
+	<a href="#">Link 2</a>
+	</li>	
+</ul>
+</section>
+</nav> 
+</div>
+</div>
+<div class="row">
+<div class="large-12 columns">
+ 
+	<div class="hide-for-small">
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	</div> 
+	 
+<!-- 	<div class="row">
+		<div class="small-12 show-for-small"><br>
+			<img src="http://placehold.it/1000x600&amp;text=For%20Small%20Screens">
+		</div>
+	</div> --> 
+</div>
+</div><br>
+<!-- <div class="row">
+	<div class="large-12 columns">
+		<div class="row">
+		 
+			<div class="large-3 small-6 columns">
+			<img src="http://placehold.it/250x250&amp;text=Thumbnail">
+			<h6 class="panel">Description</h6>
+			</div>
+			<div class="large-3 small-6 columns">
+			<img src="http://placehold.it/250x250&amp;text=Thumbnail">
+			<h6 class="panel">Description</h6>
+			</div>
+			<div class="large-3 small-6 columns">
+			<img src="http://placehold.it/250x250&amp;text=Thumbnail">
+			<h6 class="panel">Description</h6>
+			</div>
+			<div class="large-3 small-6 columns">
+			<img src="http://placehold.it/250x250&amp;text=Thumbnail">
+			<h6 class="panel">Description</h6>
+		</div> 
+	</div>
+</div> -->
+</div>
+<div class="row">
+<div class="large-12 columns">
+<div class="row">
+ 
+<div class="large-8 columns">
+<div class="panel radius">
+<div class="row">
+<div class="large-6 small-6 columns">
+<h4>Header</h4>
+<hr>
+<h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec
+dignissim nibh fermentum odio ornare sagittis.</h5>
+<div class="show-for-small" style="text-align: center">
+<a class="small radius button" href="#">Call To Action!</a><br>
+<a class="small radius button" href="#">Call To Action!</a>
+</div>
+</div>
+<div class="large-6 small-6 columns">
+<p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus
+at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat
+erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="large-4 columns hide-for-small">
+<h4>Get In Touch!</h4>
+<hr>
+<a href="#">
+<div class="panel radius callout" style="text-align: center">
+<strong>Call To Action!</strong>
+</div></a> <a href="#">
+<div class="panel radius callout" style="text-align: center">
+<strong>Call To Action!</strong>
+</div></a>
+</div> 
+</div>
+</div>
+</div> 
+<footer class="row">
+<div class="large-12 columns">
+<hr>
+<div class="row">
+<div class="large-6 columns">
+<p>© Copyright no one at all. Go to town.</p>
+</div>
+<div class="large-6 columns">
+<ul class="inline-list right">
+<li>
+<a href="#">Link 1</a>
+</li>
+<li>
+<a href="#">Link 2</a>
+</li>
+<li>
+<a href="#">Link 3</a>
+</li>
+<li>
+<a href="#">Link 4</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+  $(document).foundation();
+  $(document).ready(function(){
+$('#container').highcharts({
+        title: {
+            text: 'Monthly Average Temperature',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Tokyo',
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'New York',
+            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+        }, {
+            name: 'Berlin',
+            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+        }, {
+            name: 'London',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }]
+    });
+  });
+
+</script>
+</body>
+</html>
