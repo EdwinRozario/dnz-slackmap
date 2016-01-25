@@ -143,22 +143,28 @@ erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget 
 </div>
 </div>
 </div>
+
+<div id='users-data' data-points='[{"name":"chris","data":[266,430,546,818,687,569,14,15,743,241,97,523]},{"name":"lukas","data":[177,48,75,103,169,133,69,50,328,57,0,0]},{"name":"ben","data":[92,200,103,277,197,243,176,17,3,1,0,27]},{"name":"lascarides","data":[53,36,31,33,16,37,75,91,81,30,109,99]},{"name":"dan","data":[102,43,69,78,253,149,19,76,103,126,27,178]},{"name":"rowan","data":[44,12,118,284,93,131,164,20,39,77,246,163]},{"name":"ting","data":[10,6,13,44,35,1,14,13,12,20,0,4]},{"name":"jesse","data":[48,32,30,8,1,0,0,0,0,0,0,14]},{"name":"eddie","data":[89,84,86,100,24,153,39,53,98,111,119,185]},{"name":"taylor","data":[0,1,50,49,67,56,7,25,244,102,179,333]},{"name":"slack bot","data":[0,0,2,9,3,0,0,0,0,0,1,2]},{"name":"noel","data":[0,0,1,45,25,27,16,18,19,2,0,0]},{"name":"ruben","data":[0,0,0,14,0,3,0,0,0,0,0,0]},{"name":"adriankingston","data":[0,0,0,1,0,0,0,0,0,0,0,0]},{"name":"U02TCUZMW","data":[0,0,0,0,16,1,16,3,0,0,16,0]},{"name":"thomasin","data":[0,0,0,0,10,0,0,0,0,0,0,0]},{"name":"robinm","data":[0,0,0,0,1,6,2,0,0,0,0,0]},{"name":"U02TJGGUX","data":[0,0,0,0,0,1,2,4,4,0,0,0]},{"name":"gavin","data":[0,0,0,0,0,0,0,0,0,3,22,17]},{"name":"samminchin","data":[0,0,0,0,0,0,0,0,0,2,1,3]},{"name":"jeffery","data":[0,0,0,0,0,0,0,0,0,5,14,34]},{"name":"dan h","data":[0,0,0,0,0,0,0,0,0,0,0,4]}]' ></data>
+
 </footer>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
+
 <script>
   $(document).foundation();
   $(document).ready(function(){
+
+var user_data = JSON.parse($('#users-data').attr('data-points'));
 $('#container').highcharts({
         title: {
-            text: 'Monthly Average Temperature',
+            text: 'User Mentions',
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: 'Slack',
             x: -20
         },
         xAxis: {
@@ -167,7 +173,7 @@ $('#container').highcharts({
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Number'
             },
             plotLines: [{
                 value: 0,
@@ -184,19 +190,7 @@ $('#container').highcharts({
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: [{
-            name: 'Tokyo',
-            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }, {
-            name: 'New York',
-            data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-        }, {
-            name: 'Berlin',
-            data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-        }, {
-            name: 'London',
-            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }]
+        series: user_data
     });
   });
 
