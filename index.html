@@ -32,7 +32,7 @@
 			</ul>
 			<ul class="right">
 				<li>
-					<a href="#user-container">users</a>
+					<a href="#users-container">users</a>
 				</li>
 				<li>
 					<a href="#stories-container">stories</a>
@@ -52,7 +52,7 @@
 <div class="row">
 	<div class="large-12 columns" >	 
 		<div class="hide-for-small">
-			<div id="user-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+			<div id="users-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 		</div> 		 
 	</div>
 
@@ -234,159 +234,206 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="assets/js/grey.js"></script>
+<!-- <script src="assets/js/grey.js"></script> -->
 
 
 <script>
   $(document).foundation();
   $(document).ready(function(){
+
+	function capitalizeFirstLetter(string) {
+	    return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+  	var graphNames = ['users', 'words', 'stories', 'projects'];
+
+  	var arrayLength = graphNames.length;
+	for (var i = 0; i < arrayLength; i++) {
+		var graphName = graphNames[i];
+		var data = JSON.parse($('#' + graphName + '-data').attr('data-points'));
+		$('#' + graphName + '-container').highcharts({
+		        title: {
+		            text: capitalizeFirstLetter(graphName),
+		            x: -20 //center
+		        },
+		        subtitle: {
+		            text: 'Slack data for 2015',
+		            x: -20
+		        },
+		        xAxis: {
+		            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+		                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Number'
+		            },
+		            plotLines: [{
+		                value: 0,
+		                width: 1,
+		                color: '#808080'
+		            }]
+		        },
+		        tooltip: {
+		            valueSuffix: ''
+		        },
+		        legend: {
+		            layout: 'vertical',
+		            align: 'right',
+		            verticalAlign: 'middle',
+		            borderWidth: 0
+		        },
+		        series: data
+		    });
+	}
+
     // USER GRAPH
-	var user_data = JSON.parse($('#users-data').attr('data-points'));
-	$('#user-container').highcharts({
-	        title: {
-	            text: 'User Mentions',
-	            x: -20 //center
-	        },
-	        subtitle: {
-	            text: 'Slack',
-	            x: -20
-	        },
-	        xAxis: {
-	            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Number'
-	            },
-	            plotLines: [{
-	                value: 0,
-	                width: 1,
-	                color: '#808080'
-	            }]
-	        },
-	        tooltip: {
-	            valueSuffix: ''
-	        },
-	        legend: {
-	            layout: 'vertical',
-	            align: 'right',
-	            verticalAlign: 'middle',
-	            borderWidth: 0
-	        },
-	        series: user_data
-	    });
+	// var user_data = JSON.parse($('#users-data').attr('data-points'));
+	// $('#users-container').highcharts({
+	//         title: {
+	//             text: 'User Mentions',
+	//             x: -20 //center
+	//         },
+	//         subtitle: {
+	//             text: 'Slack',
+	//             x: -20
+	//         },
+	//         xAxis: {
+	//             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	//                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	//         },
+	//         yAxis: {
+	//             title: {
+	//                 text: 'Number'
+	//             },
+	//             plotLines: [{
+	//                 value: 0,
+	//                 width: 1,
+	//                 color: '#808080'
+	//             }]
+	//         },
+	//         tooltip: {
+	//             valueSuffix: ''
+	//         },
+	//         legend: {
+	//             layout: 'vertical',
+	//             align: 'right',
+	//             verticalAlign: 'middle',
+	//             borderWidth: 0
+	//         },
+	//         series: user_data
+	//     });
 
 	// WORDS GRAPH
-	var user_data = JSON.parse($('#words-data').attr('data-points'));
-	$('#words-container').highcharts({
-	        title: {
-	            text: 'Words Used',
-	            x: -20 //center
-	        },
-	        subtitle: {
-	            text: 'Slack',
-	            x: -20
-	        },
-	        xAxis: {
-	            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Number'
-	            },
-	            plotLines: [{
-	                value: 0,
-	                width: 1,
-	                color: '#808080'
-	            }]
-	        },
-	        tooltip: {
-	            valueSuffix: ''
-	        },
-	        legend: {
-	            layout: 'vertical',
-	            align: 'right',
-	            verticalAlign: 'middle',
-	            borderWidth: 0
-	        },
-	        series: user_data
-	    });	
+	// var user_data = JSON.parse($('#words-data').attr('data-points'));
+	// $('#words-container').highcharts({
+	//         title: {
+	//             text: 'Words Used',
+	//             x: -20 //center
+	//         },
+	//         subtitle: {
+	//             text: 'Slack',
+	//             x: -20
+	//         },
+	//         xAxis: {
+	//             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	//                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	//         },
+	//         yAxis: {
+	//             title: {
+	//                 text: 'Number'
+	//             },
+	//             plotLines: [{
+	//                 value: 0,
+	//                 width: 1,
+	//                 color: '#808080'
+	//             }]
+	//         },
+	//         tooltip: {
+	//             valueSuffix: ''
+	//         },
+	//         legend: {
+	//             layout: 'vertical',
+	//             align: 'right',
+	//             verticalAlign: 'middle',
+	//             borderWidth: 0
+	//         },
+	//         series: user_data
+	//     });	
 
 	// PROJECTS GRAPH
-	var user_data = JSON.parse($('#projects-data').attr('data-points'));
-	$('#projects-container').highcharts({
-	        title: {
-	            text: 'Projects Mentioned',
-	            x: -20 //center
-	        },
-	        subtitle: {
-	            text: 'Slack',
-	            x: -20
-	        },
-	        xAxis: {
-	            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Number'
-	            },
-	            plotLines: [{
-	                value: 0,
-	                width: 1,
-	                color: '#808080'
-	            }]
-	        },
-	        tooltip: {
-	            valueSuffix: ''
-	        },
-	        legend: {
-	            layout: 'vertical',
-	            align: 'right',
-	            verticalAlign: 'middle',
-	            borderWidth: 0
-	        },
-	        series: user_data
-	    });
+	// var user_data = JSON.parse($('#projects-data').attr('data-points'));
+	// $('#projects-container').highcharts({
+	//         title: {
+	//             text: 'Projects Mentioned',
+	//             x: -20 //center
+	//         },
+	//         subtitle: {
+	//             text: 'Slack',
+	//             x: -20
+	//         },
+	//         xAxis: {
+	//             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	//                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	//         },
+	//         yAxis: {
+	//             title: {
+	//                 text: 'Number'
+	//             },
+	//             plotLines: [{
+	//                 value: 0,
+	//                 width: 1,
+	//                 color: '#808080'
+	//             }]
+	//         },
+	//         tooltip: {
+	//             valueSuffix: ''
+	//         },
+	//         legend: {
+	//             layout: 'vertical',
+	//             align: 'right',
+	//             verticalAlign: 'middle',
+	//             borderWidth: 0
+	//         },
+	//         series: user_data
+	//     });
 
 	// STORIES GRAPH
-	var user_data = JSON.parse($('#stories-data').attr('data-points'));
-	$('#stories-container').highcharts({
-	        title: {
-	            text: 'Stories',
-	            x: -20 //center
-	        },
-	        subtitle: {
-	            text: 'Slack',
-	            x: -20
-	        },
-	        xAxis: {
-	            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-	        },
-	        yAxis: {
-	            title: {
-	                text: 'Number'
-	            },
-	            plotLines: [{
-	                value: 0,
-	                width: 1,
-	                color: '#808080'
-	            }]
-	        },
-	        tooltip: {
-	            valueSuffix: ''
-	        },
-	        legend: {
-	            layout: 'vertical',
-	            align: 'right',
-	            verticalAlign: 'middle',
-	            borderWidth: 0
-	        },
-	        series: user_data
-	    });	
+	// var user_data = JSON.parse($('#stories-data').attr('data-points'));
+	// $('#stories-container').highcharts({
+	//         title: {
+	//             text: 'Stories',
+	//             x: -20 //center
+	//         },
+	//         subtitle: {
+	//             text: 'Slack',
+	//             x: -20
+	//         },
+	//         xAxis: {
+	//             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	//                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	//         },
+	//         yAxis: {
+	//             title: {
+	//                 text: 'Number'
+	//             },
+	//             plotLines: [{
+	//                 value: 0,
+	//                 width: 1,
+	//                 color: '#808080'
+	//             }]
+	//         },
+	//         tooltip: {
+	//             valueSuffix: ''
+	//         },
+	//         legend: {
+	//             layout: 'vertical',
+	//             align: 'right',
+	//             verticalAlign: 'middle',
+	//             borderWidth: 0
+	//         },
+	//         series: user_data
+	//     });	
 
   });
 
